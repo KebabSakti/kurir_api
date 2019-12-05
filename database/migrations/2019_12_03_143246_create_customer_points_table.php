@@ -15,6 +15,9 @@ class CreateCustomerPointsTable extends Migration
     {
         Schema::create('customer_points', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('customer_id');
+            $table->bigInteger('order_id');
+            $table->string('point');
             $table->timestamps();
         });
     }

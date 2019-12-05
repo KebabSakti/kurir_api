@@ -15,6 +15,10 @@ class CreateRideRatingsTable extends Migration
     {
         Schema::create('ride_ratings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('driver_id');
+            $table->bigInteger('ride_id');
+            $table->integer('rating');
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

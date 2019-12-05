@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomerStatusesTable extends Migration
+class CreateDriverSuspendsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateCustomerStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_statuses', function (Blueprint $table) {
+        Schema::create('driver_suspends', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('driver_id');
+            $table->bigInteger('order_id')->nullable();
+            $table->text('reason');
+            $table->dateTime('finish');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateCustomerStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer_statuses');
+        Schema::dropIfExists('driver_suspends');
     }
 }

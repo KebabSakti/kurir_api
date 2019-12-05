@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CustomerAuth extends Model
+class CustomerSuspend extends Model
 {
     //
 }

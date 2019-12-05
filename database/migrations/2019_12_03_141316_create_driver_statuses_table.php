@@ -15,6 +15,7 @@ class CreateDriverStatusesTable extends Migration
     {
         Schema::create('driver_statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->enum('status', ['Offline', 'Online', 'Busy']);
             $table->timestamps();
         });
     }

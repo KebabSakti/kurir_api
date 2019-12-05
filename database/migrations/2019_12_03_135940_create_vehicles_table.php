@@ -16,7 +16,7 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('driver_id');
-            $table->string('type');
+            $table->enum('type', ['Motorcycle', 'Car'])->default('Motorcycle');
             $table->string('plate_number');
             $table->string('name');
             $table->integer('passenger_seat')->default(1);

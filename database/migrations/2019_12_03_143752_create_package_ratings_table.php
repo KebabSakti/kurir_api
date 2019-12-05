@@ -15,6 +15,10 @@ class CreatePackageRatingsTable extends Migration
     {
         Schema::create('package_ratings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('driver_id');
+            $table->bigInteger('package_id');
+            $table->integer('rating');
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

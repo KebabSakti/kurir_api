@@ -15,6 +15,9 @@ class CreateDriverPointsTable extends Migration
     {
         Schema::create('driver_points', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('driver_id');
+            $table->bigInteger('order_id');
+            $table->string('point');
             $table->timestamps();
         });
     }

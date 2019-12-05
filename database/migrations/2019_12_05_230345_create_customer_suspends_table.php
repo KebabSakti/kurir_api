@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePricesTable extends Migration
+class CreateCustomerSuspendsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreatePricesTable extends Migration
      */
     public function up()
     {
-        Schema::create('prices', function (Blueprint $table) {
+        Schema::create('customer_suspends', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('customer_id');
+            $table->bigInteger('order_id')->nullable();
+            $table->text('reason');
+            $table->dateTime('finish');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreatePricesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prices');
+        Schema::dropIfExists('customer_suspends');
     }
 }

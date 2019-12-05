@@ -15,6 +15,8 @@ class CreateTopupHistoriesTable extends Migration
     {
         Schema::create('topup_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('driver_id');
+            $table->string('amount');
             $table->timestamps();
         });
     }

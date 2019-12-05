@@ -15,6 +15,9 @@ class CreateDriverPositionsTable extends Migration
     {
         Schema::create('driver_positions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('driver_id');
+            $table->double('lat');
+            $table->double('lng');
             $table->timestamps();
         });
     }

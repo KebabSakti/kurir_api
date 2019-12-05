@@ -15,6 +15,7 @@ class CreateOrderStatusesTable extends Migration
     {
         Schema::create('order_statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->enum('status', ['Draft', 'On Progress', 'Complete', 'Cancel'])->default('Draft');
             $table->timestamps();
         });
     }

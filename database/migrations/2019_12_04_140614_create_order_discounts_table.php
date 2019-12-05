@@ -15,6 +15,8 @@ class CreateOrderDiscountsTable extends Migration
     {
         Schema::create('order_discounts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('order_id');
+            $table->bigInteger('coupon_id');
             $table->timestamps();
         });
     }

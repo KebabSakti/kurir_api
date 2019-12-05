@@ -15,6 +15,10 @@ class CreateTopUpsTable extends Migration
     {
         Schema::create('top_ups', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('driver_id');
+            $table->string('amount');
+            $table->string('last_balance');
+            $table->string('balance');
             $table->timestamps();
         });
     }

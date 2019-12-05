@@ -15,6 +15,13 @@ class CreateRidesTable extends Migration
     {
         Schema::create('rides', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('order_id');
+            $table->text('note')->nullable();
+            $table->double('lat');
+            $table->double('lng');
+            $table->text('map_address');
+            $table->string('distance');
+            $table->string('ride_fee');
             $table->timestamps();
         });
     }

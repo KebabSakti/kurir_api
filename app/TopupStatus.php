@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CustomerStatus extends Model
+class TopupStatus extends Model
 {
     //
 }

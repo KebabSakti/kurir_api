@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomerAuthsTable extends Migration
+class CreateTopupStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateCustomerAuthsTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_auths', function (Blueprint $table) {
+        Schema::create('topup_statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('topup_id');
+            $table->enum('status', ['']);
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateCustomerAuthsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer_auths');
+        Schema::dropIfExists('topup_statuses');
     }
 }

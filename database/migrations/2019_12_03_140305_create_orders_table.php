@@ -1,4 +1,4 @@
-<?php
+\<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('customer_id');
-            $table->bigInteger('driver_id');
+            $table->bigInteger('driver_id')->nullable();
             $table->string('order_number');
             $table->string('name');
             $table->string('phone');
@@ -26,10 +26,11 @@ class CreateOrdersTable extends Migration
             $table->double('lat');
             $table->double('lng');
             $table->text('map_address');
-            $table->string('price');
-            $table->string('discount');
-            $table->string('total_price');
-            $table->integer('order_count');
+            $table->boolean('is_coupon_applied')->default(false);
+            $table->enum('type', ['Package', 'Ride', 'Food']);
+            $table->string('driver_fee');
+            $table->string('company_fee');
+            $table->integer('percentage')->default(20);
             $table->timestamps();
         });
     }

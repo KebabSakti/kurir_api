@@ -15,6 +15,9 @@ class CreatePackageStatusesTable extends Migration
     {
         Schema::create('package_statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('package_id');
+            $table->enum('status', ['On Progress', 'Complete', 'Cancel']);
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

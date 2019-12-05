@@ -20,6 +20,9 @@ class CreateCustomersTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('email');
+            $table->boolean('is_verified')->default(false);
+            $table->dateTime('verified_at')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

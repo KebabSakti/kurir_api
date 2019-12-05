@@ -15,6 +15,9 @@ class CreateRideStatusesTable extends Migration
     {
         Schema::create('ride_statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('ride_id');
+            $table->enum('status', ['On Progress', 'Complete', 'Cancel']);
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
