@@ -15,6 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('service_id');
             $table->bigInteger('customer_id');
             $table->bigInteger('driver_id')->nullable();
             $table->string('order_number');
@@ -27,7 +28,6 @@ class CreateOrdersTable extends Migration
             $table->double('lng');
             $table->text('map_address');
             $table->boolean('is_coupon_applied')->default(false);
-            $table->enum('type', ['Package', 'Ride', 'Food']);
             $table->string('driver_fee');
             $table->string('company_fee');
             $table->integer('percentage')->default(20);

@@ -16,6 +16,7 @@ class CreateRulesTable extends Migration
         Schema::create('rules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('city_id')->nullable();
+            $table->bigInteger('service_id');
             $table->float('min');
             $table->float('max');
             $table->string('fixed_fee');

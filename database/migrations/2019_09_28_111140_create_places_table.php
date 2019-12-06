@@ -20,6 +20,8 @@ class CreatePlacesTable extends Migration
             $table->text('secondary_text')->nullable();
             $table->text('type')->nullable();
             $table->text('full_text')->nullable();
+            $table->double('lat')->nullable();
+            $table->double('lng')->nullable();
             $table->timestamps();
         });
     }
