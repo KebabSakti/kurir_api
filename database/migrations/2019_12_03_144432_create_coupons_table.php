@@ -20,7 +20,7 @@ class CreateCouponsTable extends Migration
             $table->string('coupon');
             $table->string('amount');
             $table->dateTime('expire_date')->nullable();
-            $table->enum('is_used')->default(false);
+            $table->boolean('is_used')->default(false);
             $table->timestamps();
         });
     }
