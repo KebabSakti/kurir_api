@@ -16,9 +16,12 @@ class CreateTopUpsTable extends Migration
         Schema::create('top_ups', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('driver_id');
+            $table->string('via')->nullable();
             $table->string('amount');
             $table->string('last_balance');
             $table->string('balance');
+            $table->enum('status', ['Pending', 'Success', 'Failed'])->default('Pending');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

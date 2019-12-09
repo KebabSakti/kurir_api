@@ -15,9 +15,9 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('service_id');
             $table->bigInteger('customer_id');
             $table->bigInteger('driver_id')->nullable();
+            $table->enum('service', ['Package', 'Ride', 'Food']);
             $table->string('order_number');
             $table->string('name');
             $table->string('phone');

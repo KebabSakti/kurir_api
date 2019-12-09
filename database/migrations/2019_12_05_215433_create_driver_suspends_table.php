@@ -18,7 +18,8 @@ class CreateDriverSuspendsTable extends Migration
             $table->bigInteger('driver_id');
             $table->bigInteger('order_id')->nullable();
             $table->text('reason');
-            $table->dateTime('finish');
+            $table->dateTime('finish')->nullable();
+            $table->boolean('is_banned')->default(false);
             $table->timestamps();
         });
     }
