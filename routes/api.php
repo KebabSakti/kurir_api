@@ -13,5 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('/places/keyword', 'PlacesController@index')->name('places');
-Route::post('/places', 'PlacesController@store')->name('places/store');
+Route::group(['prefix' => 'customer'], function() {
+    Route::get('{phone}/phone', 'Customer\CustomerController@getCustomerByPhone');
+});
